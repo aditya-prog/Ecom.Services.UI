@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IPagination } from './models/pagination';
-import { IProduct } from './models/product';
+import { IPagination } from './shared/models/pagination';
+import { IProduct } from './shared/models/product';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +10,10 @@ import { IProduct } from './models/product';
 })
 export class AppComponent implements OnInit {
   title = 'EcomServices UI';
-  productsList: IProduct[];
   
-  constructor(private httpClient: HttpClient) {
+  constructor() {
   }
 
-  public ngOnInit(): void {
-   this.httpClient.get('https://localhost:44339/api/Products?PageSize=50').subscribe((res: IPagination) => {
-     this.productsList = res.data;
-   });
-  }
+  public ngOnInit(): void {}
   
 }

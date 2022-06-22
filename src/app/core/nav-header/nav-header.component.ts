@@ -7,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-header.component.scss']
 })
 export class NavHeaderComponent implements OnInit {
-
-  public productsList: any[];
-  constructor(private httpClient: HttpClient) { }
+  constructor() { }
 
   public ngOnInit(): void {
   }
