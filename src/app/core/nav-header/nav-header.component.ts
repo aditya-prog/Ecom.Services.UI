@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BasketService } from 'src/app/basket/basket.service';
+import { IBasket } from 'src/app/shared/models/basket';
 
 @Component({
   selector: 'app-nav-header',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-header.component.scss']
 })
 export class NavHeaderComponent implements OnInit {
-  constructor() { }
+  public basket$: Observable<IBasket>;
+
+  constructor(private basketService: BasketService) { }
 
   public ngOnInit(): void {
+    this.basket$ = this.basketService.basket$;
   }
 
 }
